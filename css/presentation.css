@@ -1,0 +1,134 @@
+.pipeline {
+	margin: .3rem;
+	padding: .8rem 1.5rem;
+	box-shadow: var(--default-element-shadow);
+	color: #FFF;
+	font-size: 5rem;
+}
+
+.pipeline.is-inline {
+	font-size: inherit;
+}
+
+.pipeline.layout {
+	background-color: var(--color-1);
+}
+
+.pipeline.paint {
+	background-color: var(--color-2);
+}
+
+.pipeline.composite {
+	background-color: var(--color-3);
+}
+
+.pipeline.is-inactive {
+	opacity: .3;
+}
+
+.demo-slide-container {
+	width: 100%;
+}
+
+.demo-slide-1 {
+	width: 20rem;
+	height: 20rem;
+	background-color: var(--color-1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--color-4);
+	left: 0;
+	position: relative;
+	font-size: 5rem;
+	transition: left .3s ease-out;
+}
+
+.demo-slide-container:hover .demo-slide-1 {
+	left: 100px;
+}
+
+.demo-slide-2 {
+	width: 20rem;
+	height: 20rem;
+	background-color: var(--color-1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--color-4);
+	font-size: 5rem;
+	transition: transform .3s ease-out;
+}
+
+.demo-slide-container:hover .demo-slide-2 {
+	transform: translateX(100px);
+}
+
+.demo-card {
+	width: 35rem;
+	border: 3px solid var(--color-1);
+	transition: box-shadow .4s ease-out, transform .4s ease-out;
+}
+
+.demo-card:hover {
+	box-shadow: 0 0 50px 20px rgba(50, 50, 50, .4);
+	transform: scale(1.1);
+}
+
+.demo-card-2 {
+	width: 35rem;
+	border: 3px solid var(--color-1);
+	position: relative;
+	transition: transform .4s ease-out;
+}
+
+.demo-card-2::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	box-shadow: 0 0 50px 20px rgba(50, 50, 50, .4);
+	opacity: 0;
+	transition: opacity .4s ease-out;
+}
+
+.demo-card-2:hover {
+	transform: scale(1.1);
+}
+
+.demo-card-2:hover::before {
+	opacity: 1;
+}
+
+.demo-card-header {
+	background-color: var(--color-1);
+	border-bottom: 5px solid var(--color-4);
+}
+
+.demo-card-header h2 {
+	margin: 0;
+	padding: .8rem;
+	color: var(--color-4);
+	text-decoration: none;
+}
+
+.demo-card img,
+.demo-card-2 img {
+	max-width: 100%;
+	display: block;
+}
+
+.demo-card-footer {
+	padding: 1rem .5rem;
+	border-top: 5px solid var(--color-4);
+	background-color: var(--color-2);
+}
+
+.demo-card-footer p {
+	margin: 0;
+	font-size: 1.7rem;
+	text-align: center;
+	color: #FFF;
+}

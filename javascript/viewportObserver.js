@@ -22,5 +22,6 @@ export default class ViewportObserver {
 		}
 		this._stage.style.width = `${width}px`;
 		this._stage.style.height = `${height}px`;
+		document.body.style.fontSize = (height * 0.002) + 'em';
 	}
 }

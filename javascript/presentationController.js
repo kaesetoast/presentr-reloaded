@@ -4,8 +4,8 @@ export default class PresentationController {
 
 	constructor() {
 		this._slides = Array.from(document.querySelectorAll('.pr-slide'));
-		this._activate(0);
-		this._currentSlideIndex = 0;
+		this._currentSlideIndex = window.location.hash ? parseInt(window.location.hash.replace('#', '')) : 0;
+		this._activate(this._currentSlideIndex);
 		this._setupEventListeners();
 	}
 
@@ -17,6 +17,7 @@ export default class PresentationController {
 		this._currentSlideIndex = _slideIndex;
 		this._slides.forEach(slide => slide.classList.remove('is-active', 'is-next', 'is-next-next', 'is-prev', 'is-prev-prev'));
 		this._slides[_slideIndex].classList.add('is-active');
+		window.location.hash = _slideIndex;
 
 		if (_slideIndex > 0) {
 			this._slides[_slideIndex - 1].classList.add('is-prev');

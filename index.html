@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Presentr</title>
 	<link rel="stylesheet" href="/css/presentr.css">
+	<link rel="stylesheet" href="/css/presentation.css">
 	<script type="module" src="/javascript/main.js"></script>
 </head>
 <body>
@@ -13,16 +14,189 @@
 			<h1>CSS Animations @ 60fps</h1>
 		</div>
 		<div class="pr-slide">
-
+			<div class="emoji-bounce">😀</div>
 		</div>
 		<div class="pr-slide">
-
+			<h1>What is a (quantifiable) performant animation?</h1>
 		</div>
 		<div class="pr-slide">
-
+			<h1 class="pr-head">The holy grail: 60 frames per second</h1>
+			<div>
+				<ul>
+					<li>FPS = how many frames can be rendered in one second</li>
+					<li>A measurement for a site's "responsiveness"</li>
+					<li>60 FPS feels natural to the human eye</li>
+					<li>More calculations = less frames</li>
+				</ul>
+			</div>
 		</div>
 		<div class="pr-slide">
-
+			<h1>The pixel pipeline</h1>
+		</div>
+		<div class="pr-slide">
+			<div class="pipeline layout">Layout</div>
+			<div class="pipeline paint">Paint</div>
+			<div class="pipeline composite">Composite</div>
+		</div>
+		<div class="pr-slide">
+			<div class="pipeline layout">Layout</div>
+			<div class="pipeline is-inactive paint">Paint</div>
+			<div class="pipeline is-inactive composite">Composite</div>
+			<hr>
+			<div class="caption">
+				<ul>
+					<li>Figures out where all elements go and how much space they need</li>
+					<li>Changes to one element will effect other elements around it</li>
+					<li class="bottom-line">=> very expensive</li>
+				</ul>
+			</div>
+		</div>
+		<div class="pr-slide">
+			<div class="pipeline is-inactive layout">Layout</div>
+			<div class="pipeline paint">Paint</div>
+			<div class="pipeline is-inactive composite">Composite</div>
+			<hr>
+			<div class="caption">
+				<ul>
+					<li>Filling in all pixels</li>
+					<li>Draws out every visual part of an element<br>(text, colors, images, borders, shadows)</li>
+					<li>Organized in different layers</li>
+					<li class="bottom-line">=> still quite a lot of work</li>
+				</ul>
+			</div>
+		</div>
+		<div class="pr-slide">
+			<div class="pipeline is-inactive layout">Layout</div>
+			<div class="pipeline is-inactive paint">Paint</div>
+			<div class="pipeline composite">Composite</div>
+			<hr>
+			<div class="caption">
+				<ul>
+					<li>All parts of the UI have been drawn into different layers</li>
+					<li>These layers now need to be arranged and drawn to the screen in the correct order (composition)</li>
+					<li class="bottom-line">=> no big calculations, just arranging already drawn layers</li>
+				</ul>
+			</div>
+		</div>
+		<div class="pr-slide">
+			<h1>Why is this important?</h1>
+		</div>
+		<div class="pr-slide">
+			<ul>
+				<li>Animations change the currently painted state of the UI</li>
+				<li>The browser needs to calculate the changes for each frame</li>
+				<li>Calculations need to be as quick as possible</li>
+				<li class="bottom-line">Less calculations -> less time per frame -> <span class="list-highlight">more frames per second</span></li>
+			</ul>
+		</div>
+		<div class="pr-slide">
+			<div class="pipeline layout">Layout</div>
+			<div class="pipeline paint">Paint</div>
+			<div class="pipeline composite">Composite</div>
+		</div>
+		<div class="pr-slide">
+			<h1>So?</h1>
+		</div>
+		<div class="pr-slide">
+			<ul>
+				<li>A CSS animation changes the value of a property over time</li>
+				<li>Different properties trigger different rendering states (<a href="https://csstriggers.com/">https://csstriggers.com</a>)</li>
+				<li class="bottom-line">Key to 60 FPS is animating 'cheap' properties</li>
+			</ul>
+		</div>
+		<div class="pr-slide">
+			<h1 class="pr-head">Know your friends</h1>
+			<ul>
+				<li>
+					Properties that only trigger <span class="pipeline is-inline composite">Composition</span>
+					<ul>
+						<li><span class="code">opacity</span></li>
+						<li><span class="code">transform</span></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="pr-slide">
+			<h1>Every animation should be broken down to using <span class="code">opacity</span> or <span class="code">transform</span></h1>
+		</div>
+		<div class="pr-slide">
+			<h1>The low hanging fruits</h1>
+		</div>
+		<div class="pr-slide">
+			<div class="demo-slide-container">
+				<div class="demo-slide-1">Sliiide</div>
+			</div>
+		</div>
+		<div class="pr-slide">
+			<div class="demo-slide-container">
+				<div class="demo-slide-2">Sliiide</div>
+			</div>
+		</div>
+		<div class="pr-slide">
+			<div class="demo-card">
+				<div class="demo-card-header">
+					<h2>Holidays – yay!</h2>
+				</div>
+				<img src="/assets/philipp-vacation.jpg" alt="">
+				<div class="demo-card-footer">
+					<p>Follow @derbatzen for nice pics.</p>
+				</div>
+			</div>
+		</div>
+		<div class="pr-slide">
+			<div class="demo-card-2">
+				<div class="demo-card-header">
+					<h2>Holidays – yay!</h2>
+				</div>
+				<img src="/assets/philipp-vacation.jpg" alt="">
+				<div class="demo-card-footer">
+					<p>Follow @derbatzen for nice pics.</p>
+				</div>
+			</div>
+		</div>
+		<div class="pr-slide">
+			<h1>Tell the browser what <span class="code">will-change</span></h1>
+		</div>
+		<div class="pr-slide">
+			<h1 class="pr-head"><span class="code">will-change</span></h1>
+			<ul>
+				<li>Tells the browser that something is going to change</li>
+				<li>
+					<span class="code">will-change: opacity;</span>
+					<ul>
+						<li>The opacity fo this element is going to change soon</li>
+					</ul>
+				</li>
+				<li>
+					<span class="code">will-change: scroll-position;</span>
+					<ul>
+						<li>The scroll position of this element is going to change soon</li>
+					</ul>
+				</li>
+				<li>
+					<span class="code">will-change: transform;</span>
+					<ul>
+						<li>This element is going to be transformed soon</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="pr-slide">
+			<h1 class="pr-head"><span class="code">will-change: caution !important</span></h1>
+			<ul>
+				<li>Don't apply <span class="code">will-change</span> to too many elements</li>
+				<li>Apply it only directly before the animation is going to happen</li>
+				<li>...or to elements that are being animated <em><strong>very</strong></em> often</li>
+				<li>Don't use it if you don't need to – don't fix it if it ain't broken!</li>
+				<li>Also remove it when it is not needed any more</li>
+				<li class="bottom-line">
+					Be aware that there are side effects
+					<ul>
+						<li><span class="code">will-change</span> creates a new stacking layer</li>
+						<li>Especially <span class="code">absolute</span> and <span class="code">fixed</span> positioned elements can be affected by that in unexpected ways!</li>
+					</ul>
+				</li>
+			</ul>
 		</div>
 	</div>
 
