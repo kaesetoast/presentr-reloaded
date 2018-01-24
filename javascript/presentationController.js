@@ -51,9 +51,9 @@ export default class PresentationController {
 	}
 
 	_handleKeyDown(_event) {
-		if (_event.key === 'ArrowRight') {
+		if (_event.key === 'ArrowRight' || _event.key === 'PageDown') {
 			this.next();
-		} else if (_event.key === 'ArrowLeft') {
+		} else if (_event.key === 'ArrowLeft' || _event.key === 'PageUp') {
 			this.prev();
 		}
 	}
