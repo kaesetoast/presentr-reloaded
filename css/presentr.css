@@ -104,8 +104,6 @@ h1 {
 	text-align: center;
 	font-size: 3rem;
 	color: var(--color-1);
-	text-decoration: underline;
-	text-decoration-color: var(--color-3);
 }
 
 h2 {
@@ -118,7 +116,7 @@ h2 {
 
 .pr-head {
 	position: absolute;
-	top: 2rem;
+	top: 4rem;
 }
 
 ul {
@@ -138,7 +136,7 @@ ul > li {
 ul > li strong {
 	color: var(--color-1);
 	text-decoration: underline;
-	text-decoration-color: var(--color-3);
+	text-decoration-color: var(--color-2);
 }
 
 ul > li:last-child {
@@ -187,7 +185,7 @@ hr {
 .list-highlight {
 	color: var(--color-1);
 	text-decoration: underline;
-	text-decoration-color: var(--color-3);
+	text-decoration-color: var(--color-2);
 }
 
 .code {
