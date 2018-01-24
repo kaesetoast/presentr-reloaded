@@ -20,8 +20,14 @@ export default class ViewportObserver {
 			height = window.innerWidth * aspectRatio;
 			width = window.innerWidth;
 		}
-		this._stage.style.width = `${width}px`;
-		this._stage.style.height = `${height}px`;
-		document.body.style.fontSize = (height * 0.002) + 'em';
+		// this._stage.style.width = `${parseInt(width)}px`;
+		this._stage.style.width = `1024px`;
+		// this._stage.style.height = `${parseInt(height)}px`;
+		this._stage.style.height = `768px`;
+
+		let orientation = 768;
+
+		// document.body.style.fontSize = (height * 0.002) + 'em';
+		this._stage.style.zoom = ((window.innerHeight / orientation));
 	}
 }
