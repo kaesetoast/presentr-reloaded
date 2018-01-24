@@ -161,3 +161,38 @@
 .demo-flip-item:hover {
 	/*transform: scale(1.1);*/
 }
+
+.demo-nav-container {
+	overflow: hidden;
+	width: 40rem;
+	height: 50rem;
+	box-shadow: var(--default-element-shadow);
+	position: relative;
+}
+
+.demo-nav {
+	padding: 1rem 2rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 15rem;
+	color: #FFF;
+	background-color: var(--color-1);
+	transform: translate(-110%);
+	transition: transform .4s ease-out;
+	box-shadow: var(--default-element-shadow);
+}
+
+.demo-nav-container:hover .demo-nav {
+	transform: none;
+}
+
+.demo-page {
+	padding: 1rem 5rem;
+}
+
+.demo-page h1 {
+	margin-bottom: 2rem;
+	font-size: 2rem;
+}
